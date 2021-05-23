@@ -1,0 +1,20 @@
+.margin-esf-esq {
+    margin-left: 11px;
+  }
+  
+  .margin-esf-dir {
+    margin-left: 27px;
+  }
+  
+  .margin-cil-dir {
+    margin-left: 16px;
+  }
+  .res{
+    color: red;
+  }
+
+  input:checked{
+    background-color: rgb(37, 37, 190);
+  }
+  
+  

@@ -1,0 +1,54 @@
+<! DOCTYPE html>
+  <html lang="pt-br">
+
+  <head>
+    <title>Receita</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <h1>Receita Oftalmica</h1>
+    <p> Por favor, digite os dados da sua receita: </p>
+
+    <form>
+      <label>Grau esférico do olho esquerdo:</label>
+      <input type="number" value="0" min="-15" max="0" step="0.25" title="Digite apenas números" class="margin-esf-esq" id="esfE" onchange="if(!this.validity.valid)alert('ERRO digite: 0 a -15 para esférico. E são números iterados de 0,25 em 0,25 (ex: -0,25; 0; +0,25; etc)')"><br>
+      <label>Grau esférico do olho direito:</label>
+      <input type="number" value="0" min="-15" max="0" step="0.25" title="Digite apenas números" class="margin-esf-dir" id="esfD" onchange="if(!this.validity.valid)alert('ERRO digite: 0 a -15 para esférico. E são números iterados de 0,25 em 0,25 (ex: -0,25; 0; +0,25; etc)')"><br>
+      <label> Grau cilíndrico do olho esquerdo:</label>
+      <input type="number" value="0" min="-6" max="0" step="0.25" title="Digite apenas números" class="margin-cil-esq" id="cilE" onchange="if(!this.validity.valid)alert('ERRO digite: 0 a -6 para cilíndrico. E são números iterados de 0,25 em 0,25 (ex: -0,25; 0; +0,25; etc)')"><br>
+      <label> Grau cilíndrico do olho direito:</label>
+      <input type="number" value="0" min="-6" max="0" step="0.25" title="Digite apenas números" class="margin-cil-dir" id="cilD" onchange="if(!this.validity.valid)alert('ERRO digite: 0 a -6 para cilíndrico. E são números iterados de 0,25 em 0,25 (ex: -0,25; 0; +0,25; etc)')"><br>
+      <br>
+      <button onclick="myFunction()" type="button">Verificar lente</button>
+      <button onclick="clean()" type="reset">Limpar</button>
+    </form>
+    <div id="res" class="res"> </div>
+
+    <head>
+      <script>
+        function myFunction() {
+          var esfE = document.getElementById("esfE").value;
+          var esfD = document.getElementById("esfD").value;
+          var cilE = document.getElementById("cilE").value;
+          var cilD = document.getElementById("cilD").value;
+          if (esfE <= -3 && esfD <= -3 && cilE == 0 && cilD == 0) {
+            document.getElementById("res").innerHTML = "Sua lente é Prime";
+          } else if (esfE <= -3 && esfE >= -10 && esfD <= -3 && esfD >= -10 && cilE >= -2 && cilD >= -2) {
+            document.getElementById("res").innerHTML = "Sua lente é Prime";
+          } else if (esfE <= 0 && esfE >= -15 && esfD <= 0 && esfD >= -15 && cilE >= -6 && cilD >= -6) {
+            document.getElementById("res").innerHTML = "Sua lente é Vision";
+          } else {
+            document.getElementById("res").innerHTML = "Prencher os dados corretamente, 0 a -15 para esférico e 0 a -6 para cilíndrico. E são números iterados de 0,25 em 0,25 (ex: -0,25; 0; +0,25; etc)";
+          }
+        }
+        function clean() {
+          document.getElementById("res").innerHTML = "";
+        }
+      </script>
+    </head>
+  </body>
+
+  </html>
